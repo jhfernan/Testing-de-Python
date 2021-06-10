@@ -1,6 +1,11 @@
-from modules.api_handler import APIHandler
-from modules.menu import Menu
-from modules.prettify import Prettify
+import sys
+import os
+
+sys.path.append(os.getcwd())
+
+from app_pkg.api_handler import APIHandler
+from app_pkg.menu import Menu
+from app_pkg.prettify import Prettify
 
 
 # My Variables

@@ -6,12 +6,15 @@ class Menu:
 	results = ''
 	question = ''
 
-	def __init__(self, title):
+	def __init__(self, title, question = ''):
 		self.title = title
-		self.question += 'What data would you like to see? (Enter "Q" to quit)'
-		self.question += '\nPress \'U\' for the list of users'
-		self.question += '\nPress \'I\' for the list of items'
-		self.question += '\n=> '
+		if question:
+			self.question = question
+		else:
+			self.question += 'What data would you like to see? (Enter "Q" to quit)'
+			self.question += '\nPress \'U\' for the list of users'
+			self.question += '\nPress \'I\' for the list of items'
+			self.question += '\n=> '
 
 	def check_response(self, response):
 		possible_menu_items = ['u', 'i']
