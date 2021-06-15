@@ -4,6 +4,7 @@ from app_pkg import *
 menu = Menu('Api App', 'Login\n-----\nEmail: ')
 prettifier = Prettify()
 req = Requests()
+user = User()
 
 while True:
 	email = prettifier.main_menu(
@@ -22,9 +23,10 @@ while True:
 		"password": password
 	}
 
-	auth_res = req.post('http://localhost:3000/api/authenticate', data)
-	get_res = req.get('http://localhost:3000/api/authenticate')
+	token = req.post('http://localhost:3000/api/authenticate', data)['token']
+	user_info = req.get('http://localhost:3000/api/authenticate', token)['user']
+	user.set_info(user_info, token)
 
-	print(auth_res)
-	print(get_res)
+	print(user.admin)
+	# print(get_res)
 	break

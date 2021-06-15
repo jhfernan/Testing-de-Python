@@ -5,10 +5,18 @@ import json
 class Requests:
 	url = 'http://api.openweathermap.org/data/2.5/weather?q=orlando&appid=8816628b6017926fbf7cc60538485608'
 
-	def get(self, url = ''):
+	def get(self, url = '', token = ''):
 		if not url:
 			url = self.url
-		http_request = Request(url, headers={'Accept': 'application/json'})
+		if not token:
+			request_headers = {'Accept': 'application/json'}
+		else:
+			request_headers = {
+				'Accept': 'application/json',
+				'Authorization': 'Bearer {}'.format(token)
+			}
+
+		http_request = Request(url, headers=request_headers)
 		with urlopen(http_request) as response:
 			try:
 				json_response = json.load(response)
