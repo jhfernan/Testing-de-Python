@@ -9,7 +9,7 @@ class User:
 	token = None
 
 	def set_info(self, user, token):
-		self.id = user['id']
+		self.id = user['_id']
 		self.name = user['name']
 		self.email = user['email']
 		self.bio = user['bio']

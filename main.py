@@ -27,6 +27,8 @@ while True:
 	user_info = req.get('http://localhost:3000/api/authenticate', token)['user']
 	user.set_info(user_info, token)
 
-	print(user.admin)
+	# print(user.admin)
+	attrs = vars(user)
+	print('\n'.join("%s: %s" % item for item in attrs.items()))
 	# print(get_res)
 	break
