@@ -5,8 +5,8 @@ import sys
 
 class Prettify:
 	title = ''
-	width = 120
-	height = 45
+	width = 100
+	height = 40
 
 	def __init__(self):
 		title = '*' * self.width + '\n'
