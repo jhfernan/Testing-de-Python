@@ -9,9 +9,9 @@ class Prettify:
 	height = 40
 
 	def __init__(self):
-		title = '*' * self.width + '\n'
+		title = '-' * self.width + '\n'
 		title += self.center_content('Admin Inventory Management App\n')
-		title += '*' * self.width + '\n'
+		title += '-' * self.width + '\n'
 		self.title = title
 
 	def center_content(self, my_string):
