@@ -6,6 +6,6 @@ user = User()
 
 while True:
 	user.login_user()
-	home.print_welcome_screen(user.name)
-
+	response = home.print_welcome_screen(user)
+	print(response)
 	break

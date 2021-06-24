@@ -4,13 +4,13 @@ from .menu import Menu
 class Home(Menu):
 	title = ''
 	options = [
-		'Manage Users',
-		'Manage Items',
-		'Manage Vendors',
-		'Sales Tracking',
-		'Daily Report'
+		{ 'title': 'Manage Users', 'auth': 'admin' },
+		{ 'title': 'Manage Items' },
+		{ 'title': 'Manage Vendors' },
+		{ 'title': 'Sales Tracking', 'auth': 'admin' },
+		{ 'title': 'Daily Report', 'auth': 'admin' }
 	]
 
-	def print_welcome_screen(self, name):
-		self.default_menu('Welcome back {}'.format(name.title()))
-		response = self.print_multi_column_screen(self.options)
+	def print_welcome_screen(self, user):
+		self.default_menu('Welcome back {}'.format(user.name.title()))
+		return self.print_multi_column_screen(self.options, user)
