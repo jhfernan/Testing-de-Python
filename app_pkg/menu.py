@@ -2,10 +2,12 @@ from .prettify import Prettify
 
 
 class Menu(Prettify):
-	# title = ''
+	default_spacing = 7
 
-	def default_menu(self, title):
+	def default_menu(self, title, title_spacing = False):
 		self.print_title_screen()
+		if title_spacing:
+			print('\n' * self.default_spacing)
 		self.title_card(title)
 
 	def print_title_screen(self):
@@ -15,5 +17,5 @@ class Menu(Prettify):
 
 	def title_card(self, title):
 		content = self.center_content(title)
-		content += '\n' + self.center_content('_' * len(title))
+		content += '\n' + self.center_content('_' * len(title)) + '\n'
 		print(content)

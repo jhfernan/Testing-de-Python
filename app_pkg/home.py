@@ -8,7 +8,8 @@ class Home(Menu):
 		{ 'title': 'Manage Items' },
 		{ 'title': 'Manage Vendors' },
 		{ 'title': 'Sales Tracking', 'auth': 'admin' },
-		{ 'title': 'Daily Report', 'auth': 'admin' }
+		{ 'title': 'Daily Report', 'auth': 'admin' },
+		{ 'title': 'Logout', 'choice': 'L' }
 	]
 
 	def print_welcome_screen(self, user):

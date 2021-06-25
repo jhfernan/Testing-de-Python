@@ -7,5 +7,10 @@ user = User()
 while True:
 	user.login_user()
 	response = home.print_welcome_screen(user)
-	print(response)
-	break
+	res = response['res'].lower()
+	if res == 'q':
+		home.shutdown()
+		break
+	elif res == 'l' and response['options'][-1]['title'] == 'Logout':
+		user.logout()
+		continue

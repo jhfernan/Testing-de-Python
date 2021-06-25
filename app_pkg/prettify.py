@@ -18,10 +18,17 @@ class Prettify:
 		return int((self.width - len(my_string)) / 2) * ' ' + my_string
 
 	def clear_screen(self):
-		if os.name == 'nt':
-			os.system('cls')
-		else:
-			os.system('clear')
+		os.system('cls' if os.name == 'nt' else 'clear')
+		# if os.name == 'nt':
+		# 	os.system('cls')
+		# else:
+		# 	os.system('clear')
+
+	def shutdown(self):
+		self.clear_screen()
+		# how to clear command line history
+		if not os.name == 'nt':
+			os.system('rm ~/.zsh_history')
 
 	def print_multi_column_screen(self, options, user):
 		column_width = int(self.width / 2)
@@ -37,7 +44,12 @@ class Prettify:
 
 			count += 1
 			presented_options.append(option)
-			option_title = column_indent + str(count) + ') ' + option['title']
+			option_title = column_indent
+			if 'choice' in option:
+				option_title += option['choice']
+			else:
+				option_title += str(count)
+			option_title += ') ' + option['title']
 			if len(option_title) > column_width:
 				diff = len(option_title - (column_indent * 2) - 3)
 				options_screen += option_title[0:-diff] + '...'
